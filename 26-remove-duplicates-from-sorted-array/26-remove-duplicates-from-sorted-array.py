@@ -11,6 +11,4 @@ class Solution(object):
                 n.append(nums[i])
                 nums[k] = nums[i]
                 k += 1
-            else:
-                continue
         return k
