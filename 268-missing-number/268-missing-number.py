@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: int
         """
         length = len(nums)
-        n = length
         for i in range(length):
-            if i not in nums:
-                n = i
-            else:
+            if i in nums and length in nums:
                 continue
-        return n
+            elif length not in nums:
+                return length
+            else:
+                return i
         
