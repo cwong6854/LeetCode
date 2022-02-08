@@ -8,11 +8,7 @@ class Solution(object):
         count2 = 0
         for i in nums:
             if i == 0:
-                count += 1
-                count2 += 1
-        while count > 0:
-            nums.remove(0)
-            nums.append(0)
-            count -= 1
+                nums.append(0)
+                nums.remove(0)
         
                 
