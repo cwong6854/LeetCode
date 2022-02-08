@@ -4,10 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        zeros = nums.count(0)
-        while zeros > 0:
-            nums.append(0)
-            nums.remove(0)
-            zeros -= 1
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[j], nums[i] = nums[i], nums[j]
+                i += 1
+                
         
                 
