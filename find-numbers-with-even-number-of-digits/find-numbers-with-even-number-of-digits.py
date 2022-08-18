@@ -7,7 +7,9 @@ class Solution(object):
         count = 0
         total = 0
         for n in nums:
-            for digit in str(n):
+            num = n
+            while num != 0:
+                num = num // 10
                 count += 1
             if count % 2 == 0:
                 total += 1
