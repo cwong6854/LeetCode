@@ -4,20 +4,26 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
+        # p = 0
+        # for i in range(len(prices)):
+        #     for j in range(len(prices)):
+        #         if j <= i: 
+        #             continue
+        #         else:
+        #             profit = prices[j]
+        #             if prices[i] < profit:
+        #                 p = max(p, profit - prices[i])
+        # return p
         
-        # between two index left and right
-        # difference is right - left
-        # if left price is less than right, then take max between current profit and profit of difference
-        # otherwise, increment the left index to right
+        p = prices[0]
         profit = 0
-        left = 0
-        right = 1
-        while right < len(prices):
-            difference = prices[right] - prices[left]
-            if prices[left] < prices[right]:
-                profit = max(profit, difference)
+        for i in range(len(prices)):
+            if i == 0:
+                continue
             else:
-                left = right
-            right += 1
+                if prices[i - 1] < prices[i]:
+                    profit = max(profit, prices[i] - prices[i - 1], prices[i] - p)
+                if p > prices[i]:
+                    p = prices[i]
         return profit
-            
+        # O(N^2)
