@@ -42,21 +42,21 @@ class Solution(object):
         
         
         
-        
-        
-        arr = [1] * len(nums)
         length = len(nums)
-        prefix = 1
+        answer = length * [1]
+        
+        # prefix 
+
         for i in range(1, length):
-            arr[i] = nums[i - 1] * arr[i - 1]
-            prefix = nums[i - 1]
-        right = 1
+            answer[i] = nums[i - 1] * answer[i - 1]
+        # suffix
+        suffix = 1
+        # answer -> [1, 1, 2, 6]
         for i in range(length - 1, -1, -1):
-            arr[i] = right * arr[i]
-            right *= nums[i]
-        return arr
-        
-        
+            answer[i] *= suffix
+            suffix *= nums[i] 
+        return answer
+            
         
         
         
