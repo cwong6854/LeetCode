@@ -10,9 +10,6 @@ class Solution(object):
         # if middle index less than target, search through right
         # else, search through left
         middle = length // 2
-        if length == 1:
-            if nums[0] == target:
-                return 0
         if nums[middle] == target:
             return middle
         if nums[middle] < target:
