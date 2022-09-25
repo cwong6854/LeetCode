@@ -5,7 +5,24 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
+        length = len(nums)
+        # if target at middle index, return
+        # if middle index less than target, search through right
+        # else, search through left
+        middle = length // 2
+        if length == 1:
+            if nums[0] == target:
+                return 0
+        if nums[middle] == target:
+            return middle
+        if nums[middle] < target:
+            for i in range(middle + 1, length):
+                if nums[i] == target:
+                    return i
+        if nums[middle] > target:
+            for i in range(middle - 1, -1, -1):
+                if nums[i] == target:
+                    print(i)
+                    return i
         return -1
+        
