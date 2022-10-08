@@ -13,7 +13,7 @@ class Solution(object):
         # Counter for Maximum Depth
         maxDepth = 1
         depth = 1
-        # if there's a left or right, we will assign variable, and creat helper functions to traverse the left, right or both
+        # if there's a left or right, we will assign variable, and creat helper function to traverse the left, right or both
         def Traverse(node, depth):
             # when we traverse, depth increases
             depth += 1
