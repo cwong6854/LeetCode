@@ -10,7 +10,6 @@ class Solution(object):
         :rtype: ListNode
         """
         if head == None:
-            print(head)
             return None
         reverse_ = ListNode(head.val, None)
         def reverse(link, rev):
@@ -18,7 +17,5 @@ class Solution(object):
                 rev = ListNode(link.next.val, rev)
                 rev = reverse(link.next, rev)
             return rev
-            
-        
         result = reverse(head, reverse_)
         return result
