@@ -29,7 +29,7 @@ class Solution(object):
                 longestSubstring = max(longestSubstring, replacement)
             else:
                 dic[s[left]] -= 1
-                if not dic[s[left]]:
+                if s[left] not in dic:
                     dic.pop(s[left])
                 left += 1                
         return longestSubstring
