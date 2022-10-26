@@ -5,37 +5,34 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        # scan with two pointers: left and right
-        # store frequencies of each letter
-        # replacement cost: dist between left and right - highest frequency
-        
-        # edge cases:
-        # no letters
-        # 1 letter
-        # all same letter
-        # unique letters
-        
-        left = 0
+        # store the frequencies of each letter in hash
+        # why have frequenicies of each letter?
+        # --> replacement cost -> dist between left & right - highest freq
+        # if <= k, then move forward and increase freq of letter by 1
+        # if > k, then reduce left pointer freq by 1
+        # if not in freq: pop the left pointer freq and increase left pointer by 1
+        # keep track of left and right index
+        # also keep track of the longestSubstring 
+        freq = {}
         longestSubstring = 0
-        dic = {}
+        l = 0
+        
         for r in range(len(s)):
-            if s[r] not in dic:
-                dic[s[r]] = 0
-            dic[s[r]] += 1
+            if s[r] not in freq:
+                freq[s[r]] = 0
+            freq[s[r]] += 1
             
             # Replacement cost
-            replacement = r - left + 1
-            if replacement - max(dic.values()) <= k:
-                longestSubstring = max(longestSubstring, replacement)
+            dist_lr = r - l + 1
+            if dist_lr - max(freq.values()) <= k:
+                longestSubstring = max(dist_lr, freq[s[r]])
+            
             else:
-                dic[s[left]] -= 1
-                if s[left] not in dic:
-                    dic.pop(s[left])
-                left += 1                
+                freq[s[l]] -= 1
+                if s[l] not in freq:
+                    freq.pop(s[l])
+                l += 1
+            
         return longestSubstring
-                                    
-		
-        
-                    
                 
             
