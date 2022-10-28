@@ -4,10 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        # runtime -> o(nlogn) + o(n^2) -> o(n^2)
         triplets = []
         nums.sort()
-        #[-4, -1, -1, 0, 1, 2]
-        # ^    ^            ^
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
