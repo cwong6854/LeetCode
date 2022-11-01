@@ -12,28 +12,20 @@ class Solution(object):
         :type node: Node
         :rtype: Node
         """
-        # create copy and return clone from input -> node
-        # bfs and hashmap
-        # clone hashmap will track old and new nodes
-        clone = {}
-        
-        def cloneNode(n):
-            if n in clone:
-                return clone[n]
+        # create helper function that returns cloned node, along with its neighbors and other nodes
+        # recursive and hashmap
+        # store old and new nodes
+        cloned = {}
+        def cloning(node):
+            # check if node is already in cloned, otherwise make copy and store
+            if node in cloned:
+                return cloned[node]
             
-            copy = Node(n.val)
-            # track old and new node
-            clone[n] = copy
-            # create neighbors for clone
-            for nbors in n.neighbors:
-                copy.neighbors.append(cloneNode(nbors))
+            copy = Node(node.val)
+            cloned[node] = copy
+            #check for neighbors, if there are neighbors then we recursive to check if neighbor exists, otherwise create a clone
+            for n in node.neighbors:
+                copy.neighbors.append(cloning(n))
             return copy
-        return cloneNode(node) if node else None
-        
-        
+        return cloning(node) if node else None
                 
-            
-                
-                
-        
-                 
