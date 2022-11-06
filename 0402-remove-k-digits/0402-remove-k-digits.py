@@ -5,19 +5,14 @@ class Solution(object):
         :type k: int
         :rtype: str
         """
-        # algorithm -> monotonic increasing stack
+        # [1,2,3,4,5]
+        # [5,4,3,2,1]
         stack = []
-        # go through each number
         for c in num:
-            # k operations
-            while k > 0 and stack and stack[-1] > c: # while k isn't 0 and stack is non-empty
-                print(stack[-1])
+            while k > 0 and stack and stack[-1] > c:
                 k -= 1
                 stack.pop()
             stack.append(c)
         stack = stack[:len(stack) - k]
-        print(stack)
-        x = "".join(stack)
-        return str(int(x)) if x else "0"
-        
-        
+        res = "".join(stack)
+        return str(int(res)) if stack else "0"
