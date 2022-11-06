@@ -4,8 +4,17 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        one, two = 1, 1
-        for i in range(n):
-            one, two = one + two, one
-        return two
+        if n == 1:
+            return 1
+        if n == 2:
+            return 2
+        # at n >= 3 --> want to store our steps and track all distinct ways
+        one = 1
+        two = 2
+        all_ways = 0
+        for i in range(3, n+1):
+            all_ways = one + two
+            one = two
+            two = all_ways
+        return all_ways
             
