@@ -11,13 +11,3 @@ class Solution(object):
                 return True
             dic[nums[i]] = i
         return False
-            
-            
-#             if nums[i] not in dic:
-#                 dic[nums[i]] = i
-#             else:
-#                 if abs(dic[nums[i]] - i) <= k:
-#                     return True
-#                 else:
-#                     dic[nums[i]] = i
-#         return False
